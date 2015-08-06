@@ -13,6 +13,10 @@
 		2309EE161B7306F200594740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2309EE151B7306F200594740 /* Images.xcassets */; };
 		2309EE191B7306F200594740 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2309EE171B7306F200594740 /* LaunchScreen.xib */; };
 		2309EE251B7306F200594740 /* KeitaTwitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE241B7306F200594740 /* KeitaTwitterTests.swift */; };
+		2309EE331B73082000594740 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2309EE2F1B73082000594740 /* Fabric.framework */; };
+		2309EE341B73082000594740 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2309EE301B73082000594740 /* TwitterKit.framework */; };
+		2309EE351B73082000594740 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2309EE311B73082000594740 /* TwitterKitResources.bundle */; };
+		2309EE361B73082000594740 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2309EE321B73082000594740 /* TwitterCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		2309EE1E1B7306F200594740 /* KeitaTwitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeitaTwitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2309EE231B7306F200594740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2309EE241B7306F200594740 /* KeitaTwitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeitaTwitterTests.swift; sourceTree = "<group>"; };
+		2309EE2F1B73082000594740 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		2309EE301B73082000594740 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		2309EE311B73082000594740 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		2309EE321B73082000594740 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2309EE331B73082000594740 /* Fabric.framework in Frameworks */,
+				2309EE361B73082000594740 /* TwitterCore.framework in Frameworks */,
+				2309EE341B73082000594740 /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +73,10 @@
 				2309EE0B1B7306F200594740 /* KeitaTwitter */,
 				2309EE211B7306F200594740 /* KeitaTwitterTests */,
 				2309EE0A1B7306F200594740 /* Products */,
+				2309EE2F1B73082000594740 /* Fabric.framework */,
+				2309EE301B73082000594740 /* TwitterKit.framework */,
+				2309EE311B73082000594740 /* TwitterKitResources.bundle */,
+				2309EE321B73082000594740 /* TwitterCore.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +137,7 @@
 				2309EE051B7306F200594740 /* Sources */,
 				2309EE061B7306F200594740 /* Frameworks */,
 				2309EE071B7306F200594740 /* Resources */,
+				2309EE2E1B7307E000594740 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -192,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2309EE351B73082000594740 /* TwitterKitResources.bundle in Resources */,
 				2309EE141B7306F200594740 /* Main.storyboard in Resources */,
 				2309EE191B7306F200594740 /* LaunchScreen.xib in Resources */,
 				2309EE161B7306F200594740 /* Images.xcassets in Resources */,
@@ -206,6 +223,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2309EE2E1B7307E000594740 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run b845ccb402949acce6bd7b9176e25cdd1297ae38 b30de5a5b2380a78e77983f5e6e9f3835705926b3d3fc0d9a6a1e811bec0db2b";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2309EE051B7306F200594740 /* Sources */ = {
@@ -342,6 +375,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KeitaTwitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +389,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KeitaTwitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
