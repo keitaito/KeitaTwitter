@@ -14,12 +14,48 @@ import TwitterKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var isLoggedin = false
+    var initialVC: UIViewController?
+    let defaults = NSUserDefaults.standardUserDefaults()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        checkAuthentication()
+        
+        if isLoggedin {
+            window?.rootViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController() as? UIViewController
+        } else {
+            let rootVC = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+            let navVC: UINavigationController = UINavigationController(rootViewController: rootVC)
+            window?.rootViewController = navVC
+        }
+
+        
+        
         Fabric.with([Twitter()])
         return true
+    }
+    
+    func checkAuthentication() {
+        
+        let isAuthenticated = defaults.objectForKey("isAuthenticated") as? Bool
+        
+        if let isAuthenticated = isAuthenticated {
+            if isAuthenticated == true {
+                println("true")
+                isLoggedin = true
+            } else {
+                println("false")
+                isLoggedin = false
+            }
+        } else {
+            defaults.setObject(false, forKey: "isAuthenticated")
+            println("created isAuthenticated in defaults")
+        }
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

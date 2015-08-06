@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2309EE0F1B7306F200594740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE0E1B7306F200594740 /* AppDelegate.swift */; };
-		2309EE111B7306F200594740 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE101B7306F200594740 /* ViewController.swift */; };
+		2309EE111B7306F200594740 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE101B7306F200594740 /* LoginViewController.swift */; };
 		2309EE141B7306F200594740 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2309EE121B7306F200594740 /* Main.storyboard */; };
 		2309EE161B7306F200594740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2309EE151B7306F200594740 /* Images.xcassets */; };
 		2309EE191B7306F200594740 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2309EE171B7306F200594740 /* LaunchScreen.xib */; };
@@ -17,6 +17,7 @@
 		2309EE341B73082000594740 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2309EE301B73082000594740 /* TwitterKit.framework */; };
 		2309EE351B73082000594740 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2309EE311B73082000594740 /* TwitterKitResources.bundle */; };
 		2309EE361B73082000594740 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2309EE321B73082000594740 /* TwitterCore.framework */; };
+		2309EE3A1B7309AC00594740 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE391B7309AC00594740 /* MainTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +34,7 @@
 		2309EE091B7306F200594740 /* KeitaTwitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeitaTwitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2309EE0D1B7306F200594740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2309EE0E1B7306F200594740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2309EE101B7306F200594740 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2309EE101B7306F200594740 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2309EE131B7306F200594740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2309EE151B7306F200594740 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2309EE181B7306F200594740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		2309EE301B73082000594740 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		2309EE311B73082000594740 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		2309EE321B73082000594740 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		2309EE391B7309AC00594740 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				2309EE0E1B7306F200594740 /* AppDelegate.swift */,
-				2309EE101B7306F200594740 /* ViewController.swift */,
+				2309EE101B7306F200594740 /* LoginViewController.swift */,
 				2309EE121B7306F200594740 /* Main.storyboard */,
+				2309EE391B7309AC00594740 /* MainTableViewController.swift */,
 				2309EE151B7306F200594740 /* Images.xcassets */,
 				2309EE171B7306F200594740 /* LaunchScreen.xib */,
 				2309EE0C1B7306F200594740 /* Supporting Files */,
@@ -245,7 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2309EE111B7306F200594740 /* ViewController.swift in Sources */,
+				2309EE111B7306F200594740 /* LoginViewController.swift in Sources */,
+				2309EE3A1B7309AC00594740 /* MainTableViewController.swift in Sources */,
 				2309EE0F1B7306F200594740 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +456,7 @@
 				2309EE2A1B7306F200594740 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2309EE2B1B7306F200594740 /* Build configuration list for PBXNativeTarget "KeitaTwitterTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +465,7 @@
 				2309EE2D1B7306F200594740 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
