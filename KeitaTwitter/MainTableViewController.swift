@@ -163,6 +163,28 @@ class MainTableViewController: UITableViewController {
 
     }
     
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "moveToMessageTableView" {
+            let messageTVC = segue.destinationViewController as! MessageTableViewController
+            let indexPath: NSIndexPath? = tableView.indexPathForSelectedRow()
+            if let indexPath = indexPath {
+                let username: String? = followersNameArray[indexPath.row]
+                
+                let user: User = User(username: username!)
+                messageTVC.user = user
+                messageTVC.title = username
+            }
+        }
+    }
+    
+    
 
     /*
     // Override to support conditional editing of the table view.

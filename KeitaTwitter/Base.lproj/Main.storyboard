@@ -51,7 +51,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="snF-46-LaN" kind="show" id="bOE-mc-EI8"/>
+                                    <segue destination="snF-46-LaN" kind="show" identifier="moveToMessageTableView" id="bOE-mc-EI8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
