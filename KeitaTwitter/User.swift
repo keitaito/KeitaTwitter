@@ -9,5 +9,16 @@
 import UIKit
 
 class User: NSObject {
-   
+    
+    let username: String
+    var message: Message? = nil
+    
+    override convenience init() {
+        self.init(username: "someone")
+        println("init")
+    }
+    
+    init(username: String) {
+        self.username = username
+    }
 }
