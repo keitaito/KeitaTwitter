@@ -70,7 +70,6 @@
         <!--Table View Controller-->
         <scene sceneID="BD3-Pb-eZt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue8-AU-02X" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="snF-46-LaN" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LE0-DF-ymc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -82,6 +81,7 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue8-AU-02X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1738" y="997"/>
         </scene>

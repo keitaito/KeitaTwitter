@@ -18,6 +18,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    var messages: [Message] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,18 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         // add tap gesture recognizer for dismissing keyboard when the screen is tapped (due to UITableView)
         let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
         self.view.addGestureRecognizer(gestureRecognizer)
+        
+        
+        
+        
+        
+        
+        
+        // message test code
+        let aMessage = Message(text: "keita")
+        messages.append(aMessage)
+        let bMessage = Message(text: "Thom")
+        messages.append(bMessage)
     }
     
     deinit {
@@ -89,20 +103,22 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return messages.count
     }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MessageTableViewCell", forIndexPath: indexPath) as! MessageTableViewCell
 
         // Configure the cell...
+        cell.textLabel?.text = messages[indexPath.row].text
+        cell.textLabel?.textAlignment = NSTextAlignment.Right
 
         return cell
     }

@@ -177,9 +177,11 @@ class MainTableViewController: UITableViewController {
             if let indexPath = indexPath {
                 let username: String? = followersNameArray[indexPath.row]
                 
-                let user: User = User(username: username!)
-                messageVC.user = user
-                messageVC.title = username
+                if let username = username {
+                    let user: User = User(username: username)
+                    messageVC.user = user
+                    messageVC.title = "@\(username)"
+                }
             }
         }
     }
