@@ -19,7 +19,7 @@
 		2309EE361B73082000594740 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2309EE321B73082000594740 /* TwitterCore.framework */; };
 		2309EE3A1B7309AC00594740 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE391B7309AC00594740 /* MainTableViewController.swift */; };
 		2309EE3C1B73514700594740 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE3B1B73514700594740 /* MainTableViewCell.swift */; };
-		2309EE3E1B73518C00594740 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE3D1B73518C00594740 /* MessageTableViewController.swift */; };
+		2309EE3E1B73518C00594740 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE3D1B73518C00594740 /* MessageViewController.swift */; };
 		2309EE401B7351A000594740 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE3F1B7351A000594740 /* MessageTableViewCell.swift */; };
 		2309EE421B73523A00594740 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE411B73523A00594740 /* User.swift */; };
 		2309EE441B73525000594740 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE431B73525000594740 /* Message.swift */; };
@@ -52,7 +52,7 @@
 		2309EE321B73082000594740 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		2309EE391B7309AC00594740 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		2309EE3B1B73514700594740 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		2309EE3D1B73518C00594740 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		2309EE3D1B73518C00594740 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		2309EE3F1B7351A000594740 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		2309EE411B73523A00594740 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2309EE431B73525000594740 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 				2309EE121B7306F200594740 /* Main.storyboard */,
 				2309EE391B7309AC00594740 /* MainTableViewController.swift */,
 				2309EE3B1B73514700594740 /* MainTableViewCell.swift */,
-				2309EE3D1B73518C00594740 /* MessageTableViewController.swift */,
+				2309EE3D1B73518C00594740 /* MessageViewController.swift */,
 				2309EE3F1B7351A000594740 /* MessageTableViewCell.swift */,
 				2309EE411B73523A00594740 /* User.swift */,
 				2309EE431B73525000594740 /* Message.swift */,
@@ -265,7 +265,7 @@
 			files = (
 				2309EE111B7306F200594740 /* LoginViewController.swift in Sources */,
 				2309EE3A1B7309AC00594740 /* MainTableViewController.swift in Sources */,
-				2309EE3E1B73518C00594740 /* MessageTableViewController.swift in Sources */,
+				2309EE3E1B73518C00594740 /* MessageViewController.swift in Sources */,
 				2309EE3C1B73514700594740 /* MainTableViewCell.swift in Sources */,
 				2309EE0F1B7306F200594740 /* AppDelegate.swift in Sources */,
 				2309EE441B73525000594740 /* Message.swift in Sources */,
