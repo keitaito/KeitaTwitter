@@ -16,6 +16,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -27,14 +28,62 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        // set self to text field's delegete
+        self.messageTextField.delegate = self
         
+        // add observers for moving up text field when keyboard is displayed
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil)
+        
+        // add tap gesture recognizer for dismissing keyboard when the screen is tapped (due to UITableView)
+        let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
+        self.view.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self);
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    // move up text field when keyboard is displayed
+    func keyboardWasShown(notification: NSNotification) {
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.bottomConstraint.constant = keyboardFrame.size.height + 20
+        })
+    }
+    
+    // move back text field to the bottom of the screen
+    func keyboardWillHide(notification: NSNotification) {
+//        var info = notification.userInfo!
+//        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.bottomConstraint.constant = 0
+        })
+    }
+    
+    func dismissKeyboard() {
+        // TODO: reignFirstResponder vs endEditing
+        self.messageTextField.resignFirstResponder()
+        self.containerView.endEditing(true)
+    }
+    
+    // MARK: - UITextField Delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        
+        // TODO: which is correct, true or false?
+        return false
+    }
+    
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -57,7 +106,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         return cell
     }
-    
 
     /*
     // Override to support conditional editing of the table view.

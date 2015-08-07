@@ -156,6 +156,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="7Zj-uC-XgJ" id="vn7-OC-SuX"/>
                         <outlet property="containerView" destination="Bcp-KY-K8o" id="dNL-f1-eon"/>
                         <outlet property="messageTextField" destination="Vpe-ws-OpM" id="avl-CN-alb"/>
                         <outlet property="postButton" destination="lS2-ma-m6o" id="jWG-lf-veb"/>
