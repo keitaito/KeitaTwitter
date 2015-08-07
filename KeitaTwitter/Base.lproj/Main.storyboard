@@ -83,7 +83,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ue8-AU-02X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1738" y="997"/>
+            <point key="canvasLocation" x="1824" y="327"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="6Pl-yI-8HQ">
@@ -131,6 +131,9 @@
                                         <state key="normal" title="Post">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="postMessage:" destination="9HE-Vy-OxA" eventType="touchUpInside" id="I1k-w5-Rej"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3v-zO-WuV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1714" y="1802"/>
+            <point key="canvasLocation" x="1824" y="1009"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z8w-vD-OyO">

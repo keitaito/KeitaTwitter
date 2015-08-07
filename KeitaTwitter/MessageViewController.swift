@@ -18,7 +18,15 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    var messages: [Message] = []
+    var messages: [Message] = [] {
+        didSet {
+            
+            let lastMessage = messages.last!
+            if lastMessage.type == .Sending {
+                autoReply(messages.last!)
+            }
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -48,10 +56,10 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         // message test code
-        let aMessage = Message(text: "keita")
-        messages.append(aMessage)
-        let bMessage = Message(text: "Thom")
-        messages.append(bMessage)
+//        let aMessage = Message(text: "keita")
+//        messages.append(aMessage)
+//        let bMessage = Message(text: "Thom")
+//        messages.append(bMessage)
     }
     
     deinit {
@@ -89,6 +97,34 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.containerView.endEditing(true)
     }
     
+    // MARK: - Actions
+    
+    @IBAction func postMessage(sender: AnyObject) {
+        
+        if messageTextField.text != "" {
+            let sendingMessageText = messageTextField.text
+            let sendingMessage = Message(text: sendingMessageText, type: .Sending)
+            messages.append(sendingMessage)
+            tableView.reloadData()
+            println("Posted a message")
+            messageTextField.text = ""
+        } else {
+            println("no text")
+        }
+    }
+    
+    func autoReply(message: Message) {
+        let messageText = message.text
+        let replyMessageText = messageText + messageText
+        let replyMessage = Message(text: replyMessageText, type: .Receiving)
+        messages.append(replyMessage)
+        tableView.reloadData()
+    }
+    
+    
+    
+    
+    
     // MARK: - UITextField Delegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -118,7 +154,15 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         // Configure the cell...
         cell.textLabel?.text = messages[indexPath.row].text
-        cell.textLabel?.textAlignment = NSTextAlignment.Right
+        
+        let message: Message = messages[indexPath.row]
+        if message.type == .Sending {
+            cell.textLabel?.textAlignment = NSTextAlignment.Right
+        } else if message.type == .Receiving {
+            cell.textLabel?.textAlignment = NSTextAlignment.Left
+        }
+        
+        
 
         return cell
     }
