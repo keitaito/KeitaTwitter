@@ -10,6 +10,9 @@ import UIKit
 
 class SendingMessageCell: UITableViewCell {
 
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var messageTextLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

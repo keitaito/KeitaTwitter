@@ -152,30 +152,50 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageTableViewCell", forIndexPath: indexPath) as! MessageTableViewCell
-
-        // Configure the cell...
-        cell.textLabel?.text = messages[indexPath.row].text
         
-        let message: Message = messages[indexPath.row]
+//        var cell: UITableViewCell? = nil
+        
+        let message = messages[indexPath.row]
+        
         if message.type == .Sending {
-            cell.textLabel?.textAlignment = NSTextAlignment.Right
-            let imageView = UIImageView(image: UIImage(named: "right_bubble"))
-            println(cell.textLabel!.frame.size.width)
-            imageView.frame = cell.textLabel!.frame
-//            cell.textLabel?.addSubview(imageView)
-//            cell.insertSubview(imageView, belowSubview: cell.textLabel!)
-            cell.backgroundColor = UIColor.clearColor()
-            cell.backgroundView = imageView
-        } else if message.type == .Receiving {
-            cell.textLabel?.textAlignment = NSTextAlignment.Left
-            let imageView = UIImageView(image: UIImage(named: "left_bubble"))
-            cell.insertSubview(imageView, aboveSubview: cell.textLabel!)
+            let cell = tableView.dequeueReusableCellWithIdentifier("SendingMessageCell", forIndexPath: indexPath) as! SendingMessageCell
+            cell.messageTextLabel.text = message.text
+            cell.backgroundImageView = UIImageView(image: UIImage(named: "right_bubble"))
+            //cell.backgroundImageView.frame = cell.messageTextLabel.frame
+            //cell.backgroundColor = UIColor.clearColor()
+            return cell
+        } else  {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ReceivingMessageCell", forIndexPath: indexPath) as! ReceivingMessageCell
+            cell.messageTextLabel.text = message.text
+            cell.backgroundImageView = UIImageView(image: UIImage(named: "left_bubble"))
+            //cell.backgroundColor = UIColor.clearColor()
+            return cell
         }
         
+//        let cell = tableView.dequeueReusableCellWithIdentifier("MessageTableViewCell", forIndexPath: indexPath) as! MessageTableViewCell
+
+        // Configure the cell...
+//        cell.textLabel?.text = messages[indexPath.row].text
+//        
+//        let message: Message = messages[indexPath.row]
+//        if message.type == .Sending {
+//            cell.textLabel?.textAlignment = NSTextAlignment.Right
+//            let imageView = UIImageView(image: UIImage(named: "right_bubble"))
+//            println(cell.textLabel!.frame.size.width)
+//            imageView.frame = cell.textLabel!.frame
+////            cell.textLabel?.addSubview(imageView)
+////            cell.insertSubview(imageView, belowSubview: cell.textLabel!)
+//            cell.backgroundColor = UIColor.clearColor()
+//            cell.backgroundView = imageView
+//        } else if message.type == .Receiving {
+//            cell.textLabel?.textAlignment = NSTextAlignment.Left
+//            let imageView = UIImageView(image: UIImage(named: "left_bubble"))
+//            cell.insertSubview(imageView, aboveSubview: cell.textLabel!)
+//        }
+        
         
 
-        return cell
+//        return cell
     }
 
     /*

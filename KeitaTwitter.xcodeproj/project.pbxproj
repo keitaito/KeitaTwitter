@@ -23,10 +23,6 @@
 		2309EE401B7351A000594740 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE3F1B7351A000594740 /* MessageTableViewCell.swift */; };
 		2309EE421B73523A00594740 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE411B73523A00594740 /* User.swift */; };
 		2309EE441B73525000594740 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE431B73525000594740 /* Message.swift */; };
-		23DE908F1B74690100BDC787 /* left_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 23DE908B1B74690100BDC787 /* left_bubble.png */; };
-		23DE90901B74690100BDC787 /* left_bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23DE908C1B74690100BDC787 /* left_bubble@2x.png */; };
-		23DE90911B74690100BDC787 /* right_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 23DE908D1B74690100BDC787 /* right_bubble.png */; };
-		23DE90921B74690100BDC787 /* right_bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23DE908E1B74690100BDC787 /* right_bubble@2x.png */; };
 		23DE90941B74A29500BDC787 /* SendingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE90931B74A29500BDC787 /* SendingMessageCell.swift */; };
 		23DE90961B74A2B100BDC787 /* ReceivingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE90951B74A2B100BDC787 /* ReceivingMessageCell.swift */; };
 /* End PBXBuildFile section */
@@ -62,10 +58,6 @@
 		2309EE3F1B7351A000594740 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		2309EE411B73523A00594740 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2309EE431B73525000594740 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		23DE908B1B74690100BDC787 /* left_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_bubble.png; sourceTree = "<group>"; };
-		23DE908C1B74690100BDC787 /* left_bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_bubble@2x.png"; sourceTree = "<group>"; };
-		23DE908D1B74690100BDC787 /* right_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_bubble.png; sourceTree = "<group>"; };
-		23DE908E1B74690100BDC787 /* right_bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_bubble@2x.png"; sourceTree = "<group>"; };
 		23DE90931B74A29500BDC787 /* SendingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingMessageCell.swift; sourceTree = "<group>"; };
 		23DE90951B74A2B100BDC787 /* ReceivingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivingMessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,10 +129,6 @@
 		2309EE0C1B7306F200594740 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				23DE908B1B74690100BDC787 /* left_bubble.png */,
-				23DE908C1B74690100BDC787 /* left_bubble@2x.png */,
-				23DE908D1B74690100BDC787 /* right_bubble.png */,
-				23DE908E1B74690100BDC787 /* right_bubble@2x.png */,
 				2309EE0D1B7306F200594740 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -245,13 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2309EE351B73082000594740 /* TwitterKitResources.bundle in Resources */,
-				23DE90921B74690100BDC787 /* right_bubble@2x.png in Resources */,
-				23DE90911B74690100BDC787 /* right_bubble.png in Resources */,
 				2309EE141B7306F200594740 /* Main.storyboard in Resources */,
 				2309EE191B7306F200594740 /* LaunchScreen.xib in Resources */,
-				23DE908F1B74690100BDC787 /* left_bubble.png in Resources */,
 				2309EE161B7306F200594740 /* Images.xcassets in Resources */,
-				23DE90901B74690100BDC787 /* left_bubble@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
