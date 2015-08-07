@@ -56,6 +56,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         // message test code
+        self.view.addSubview(UIImageView(image: UIImage(named: "right_bubble")))
+        
 //        let aMessage = Message(text: "keita")
 //        messages.append(aMessage)
 //        let bMessage = Message(text: "Thom")
@@ -158,8 +160,17 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         let message: Message = messages[indexPath.row]
         if message.type == .Sending {
             cell.textLabel?.textAlignment = NSTextAlignment.Right
+            let imageView = UIImageView(image: UIImage(named: "right_bubble"))
+            println(cell.textLabel!.frame.size.width)
+            imageView.frame = cell.textLabel!.frame
+//            cell.textLabel?.addSubview(imageView)
+//            cell.insertSubview(imageView, belowSubview: cell.textLabel!)
+            cell.backgroundColor = UIColor.clearColor()
+            cell.backgroundView = imageView
         } else if message.type == .Receiving {
             cell.textLabel?.textAlignment = NSTextAlignment.Left
+            let imageView = UIImageView(image: UIImage(named: "left_bubble"))
+            cell.insertSubview(imageView, aboveSubview: cell.textLabel!)
         }
         
         
