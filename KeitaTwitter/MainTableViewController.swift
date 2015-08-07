@@ -172,14 +172,14 @@ class MainTableViewController: UITableViewController {
     // Pass the selected object to the new view controller.
         
         if segue.identifier == "moveToMessageTableView" {
-            let messageTVC = segue.destinationViewController as! MessageTableViewController
+            let messageVC = segue.destinationViewController as! MessageViewController
             let indexPath: NSIndexPath? = tableView.indexPathForSelectedRow()
             if let indexPath = indexPath {
                 let username: String? = followersNameArray[indexPath.row]
                 
                 let user: User = User(username: username!)
-                messageTVC.user = user
-                messageTVC.title = username
+                messageVC.user = user
+                messageVC.title = username
             }
         }
     }

@@ -35,6 +35,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="378" y="1752"/>
         </scene>
         <!--Main Table View Controller-->
         <scene sceneID="TrI-db-XF2">
@@ -51,7 +52,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="snF-46-LaN" kind="show" identifier="moveToMessageTableView" id="bOE-mc-EI8"/>
+                                    <segue destination="9HE-Vy-OxA" kind="show" identifier="moveToMessageTableView" id="oEB-oD-BqP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -66,31 +67,104 @@
             </objects>
             <point key="canvasLocation" x="1055" y="1009"/>
         </scene>
-        <!--Message Table View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="BD3-Pb-eZt">
             <objects>
-                <tableViewController id="snF-46-LaN" customClass="MessageTableViewController" customModule="KeitaTwitter" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue8-AU-02X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="snF-46-LaN" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LE0-DF-ymc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GzC-dj-WPn" customClass="MessageTableViewCell" customModule="KeitaTwitter" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GzC-dj-WPn" id="MKg-x1-azy">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="snF-46-LaN" id="Zhu-aF-vmD"/>
                             <outlet property="delegate" destination="snF-46-LaN" id="jLY-VM-xY7"/>
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue8-AU-02X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1777" y="1009"/>
+            <point key="canvasLocation" x="1738" y="997"/>
+        </scene>
+        <!--Message View Controller-->
+        <scene sceneID="6Pl-yI-8HQ">
+            <objects>
+                <viewController id="9HE-Vy-OxA" customClass="MessageViewController" customModule="KeitaTwitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vUx-3B-n3i"/>
+                        <viewControllerLayoutGuide type="bottom" id="IhP-i7-dhk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yLY-9Z-15J">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E73-tr-zev">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTableViewCell" id="GzC-dj-WPn" customClass="MessageTableViewCell" customModule="KeitaTwitter" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GzC-dj-WPn" id="MKg-x1-azy">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9HE-Vy-OxA" id="3QB-2E-8CV"/>
+                                    <outlet property="delegate" destination="9HE-Vy-OxA" id="OWO-O8-EwQ"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bcp-KY-K8o">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpe-ws-OpM">
+                                        <rect key="frame" x="8" y="7" width="530" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lS2-ma-m6o">
+                                        <rect key="frame" x="546" y="7" width="46" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="EPS-IL-pwJ"/>
+                                            <constraint firstAttribute="width" constant="46" id="m7b-Fu-1cI"/>
+                                        </constraints>
+                                        <state key="normal" title="Post">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="lS2-ma-m6o" firstAttribute="top" secondItem="Bcp-KY-K8o" secondAttribute="top" constant="7" id="7eS-fX-5jB"/>
+                                    <constraint firstItem="Vpe-ws-OpM" firstAttribute="leading" secondItem="Bcp-KY-K8o" secondAttribute="leading" constant="8" id="JRr-tR-3Bp"/>
+                                    <constraint firstAttribute="trailing" secondItem="lS2-ma-m6o" secondAttribute="trailing" constant="8" id="VTI-Dr-4Zf"/>
+                                    <constraint firstItem="Vpe-ws-OpM" firstAttribute="top" secondItem="Bcp-KY-K8o" secondAttribute="top" constant="7" id="XKn-V2-CfZ"/>
+                                    <constraint firstAttribute="height" secondItem="Vpe-ws-OpM" secondAttribute="height" constant="14" id="Znj-Y4-RxI"/>
+                                    <constraint firstItem="lS2-ma-m6o" firstAttribute="leading" secondItem="Vpe-ws-OpM" secondAttribute="trailing" constant="8" id="gfK-l0-c4p"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bcp-KY-K8o" firstAttribute="leading" secondItem="yLY-9Z-15J" secondAttribute="leading" id="2OT-Hp-Pz4"/>
+                            <constraint firstAttribute="trailing" secondItem="E73-tr-zev" secondAttribute="trailing" id="2rG-tK-PYM"/>
+                            <constraint firstItem="IhP-i7-dhk" firstAttribute="top" secondItem="Bcp-KY-K8o" secondAttribute="bottom" id="7Zj-uC-XgJ"/>
+                            <constraint firstItem="E73-tr-zev" firstAttribute="top" secondItem="yLY-9Z-15J" secondAttribute="top" id="QJt-q8-svY"/>
+                            <constraint firstItem="IhP-i7-dhk" firstAttribute="top" secondItem="E73-tr-zev" secondAttribute="bottom" id="S9Y-3U-Kgs"/>
+                            <constraint firstItem="E73-tr-zev" firstAttribute="leading" secondItem="yLY-9Z-15J" secondAttribute="leading" id="uby-pg-Qgx"/>
+                            <constraint firstAttribute="trailing" secondItem="Bcp-KY-K8o" secondAttribute="trailing" id="xrR-pX-HSK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="Bcp-KY-K8o" id="dNL-f1-eon"/>
+                        <outlet property="messageTextField" destination="Vpe-ws-OpM" id="avl-CN-alb"/>
+                        <outlet property="postButton" destination="lS2-ma-m6o" id="jWG-lf-veb"/>
+                        <outlet property="tableView" destination="E73-tr-zev" id="R02-AQ-8Rq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3v-zO-WuV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1714" y="1802"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z8w-vD-OyO">
