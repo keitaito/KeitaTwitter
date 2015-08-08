@@ -23,6 +23,8 @@
 		2309EE401B7351A000594740 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE3F1B7351A000594740 /* MessageTableViewCell.swift */; };
 		2309EE421B73523A00594740 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE411B73523A00594740 /* User.swift */; };
 		2309EE441B73525000594740 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309EE431B73525000594740 /* Message.swift */; };
+		23DE90941B74A29500BDC787 /* SendingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE90931B74A29500BDC787 /* SendingMessageCell.swift */; };
+		23DE90961B74A2B100BDC787 /* ReceivingMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE90951B74A2B100BDC787 /* ReceivingMessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		2309EE3F1B7351A000594740 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		2309EE411B73523A00594740 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2309EE431B73525000594740 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		23DE90931B74A29500BDC787 /* SendingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingMessageCell.swift; sourceTree = "<group>"; };
+		23DE90951B74A2B100BDC787 /* ReceivingMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivingMessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				2309EE121B7306F200594740 /* Main.storyboard */,
 				2309EE391B7309AC00594740 /* MainTableViewController.swift */,
 				2309EE3B1B73514700594740 /* MainTableViewCell.swift */,
+				23DE90931B74A29500BDC787 /* SendingMessageCell.swift */,
+				23DE90951B74A2B100BDC787 /* ReceivingMessageCell.swift */,
 				2309EE3D1B73518C00594740 /* MessageViewController.swift */,
 				2309EE3F1B7351A000594740 /* MessageTableViewCell.swift */,
 				2309EE411B73523A00594740 /* User.swift */,
@@ -264,10 +270,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2309EE111B7306F200594740 /* LoginViewController.swift in Sources */,
+				23DE90941B74A29500BDC787 /* SendingMessageCell.swift in Sources */,
 				2309EE3A1B7309AC00594740 /* MainTableViewController.swift in Sources */,
 				2309EE3E1B73518C00594740 /* MessageViewController.swift in Sources */,
 				2309EE3C1B73514700594740 /* MainTableViewCell.swift in Sources */,
 				2309EE0F1B7306F200594740 /* AppDelegate.swift in Sources */,
+				23DE90961B74A2B100BDC787 /* ReceivingMessageCell.swift in Sources */,
 				2309EE441B73525000594740 /* Message.swift in Sources */,
 				2309EE401B7351A000594740 /* MessageTableViewCell.swift in Sources */,
 				2309EE421B73523A00594740 /* User.swift in Sources */,

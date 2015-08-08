@@ -18,51 +18,57 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    var messages: [Message] = [] {
+        // when post a message, the mesaage is added to messages property. Adding it triggers didSet property observer.
+        didSet {
+            
+            let lastMessage = messages.last!
+            
+            // if an added message's type is Sending, call autoReply method.
+            if lastMessage.type == .Sending {
+                
+                // 1 second delay with calling autoReply method.
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+                    self.autoReply(self.messages.last!)
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        // set self to text field's delegete
+        // set self to text field's delegete.
         self.messageTextField.delegate = self
         
-        // add observers for moving up text field when keyboard is displayed
+        // add observers for moving up text field when keyboard is displayed.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name:UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil)
         
-        // add tap gesture recognizer for dismissing keyboard when the screen is tapped (due to UITableView)
+        // add tap gesture recognizer for dismissing keyboard when the screen is tapped (due to UITableView).
         let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
         self.view.addGestureRecognizer(gestureRecognizer)
     }
     
+    // remove obeservers.
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self);
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: - Keyboard Actions
     
-    // move up text field when keyboard is displayed
+    // move up text field when keyboard is displayed.
     func keyboardWasShown(notification: NSNotification) {
         var info = notification.userInfo!
         var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.bottomConstraint.constant = keyboardFrame.size.height + 20
+            self.bottomConstraint.constant = keyboardFrame.size.height
         })
     }
     
     // move back text field to the bottom of the screen
     func keyboardWillHide(notification: NSNotification) {
-//        var info = notification.userInfo!
-//        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(0.1, animations: { () -> Void in
             self.bottomConstraint.constant = 0
@@ -70,9 +76,35 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func dismissKeyboard() {
-        // TODO: reignFirstResponder vs endEditing
+        // TODO: search reignFirstResponder vs endEditing
         self.messageTextField.resignFirstResponder()
         self.containerView.endEditing(true)
+    }
+    
+    // MARK: - Message Actions
+    
+    @IBAction func postMessage(sender: AnyObject) {
+        
+        // if some text in textfield, add it as a message object to messages property.
+        if messageTextField.text != "" {
+            let sendingMessageText = messageTextField.text
+            let sendingMessage = Message(text: sendingMessageText, type: .Sending)
+            messages.append(sendingMessage)
+            tableView.reloadData()
+            println("Posted a message")
+            messageTextField.text = ""
+        } else {
+            println("no text")
+        }
+    }
+    
+    // reply with double of the same texts of the last sending message.
+    func autoReply(message: Message) {
+        let messageText = message.text
+        let replyMessageText = messageText + messageText
+        let replyMessage = Message(text: replyMessageText, type: .Receiving)
+        messages.append(replyMessage)
+        tableView.reloadData()
     }
     
     // MARK: - UITextField Delegate
@@ -80,31 +112,35 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         
-        // TODO: which is correct, true or false?
+        // TODO: serarch which is correct, true or false?
         return false
     }
     
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return 1
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return messages.count
     }
 
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+        
+        let message = messages[indexPath.row]
+        
+        if message.type == .Sending {
+            let cell = tableView.dequeueReusableCellWithIdentifier("SendingMessageCell", forIndexPath: indexPath) as! SendingMessageCell
+            cell.messageTextView.text = message.text
+            cell.backgroundImageView = UIImageView(image: UIImage(named: "right_bubble"))
+            return cell
+        } else  {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ReceivingMessageCell", forIndexPath: indexPath) as! ReceivingMessageCell
+            cell.messageTextView.text = message.text
+            cell.backgroundImageView = UIImageView(image: UIImage(named: "left_bubble"))
+            return cell
+        }
     }
 
     /*
@@ -142,6 +178,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     */
 
-    
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }

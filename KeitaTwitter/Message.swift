@@ -9,5 +9,18 @@
 import UIKit
 
 class Message: NSObject {
+    
+    enum MessageType {
+        case Sending
+        case Receiving
+    }
+    
+    let text: String
+    let type: MessageType
+    
+    init(text: String, type: MessageType) {
+        self.text = text
+        self.type = type
+    }
    
 }

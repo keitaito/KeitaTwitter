@@ -17,64 +17,15 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getAccountVerifyCredentials()
-        
+
         getFollowersList()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    func getAccountVerifyCredentials() {
-        let statusesShowEndpoint = "https://api.twitter.com/1.1/account/verify_credentials.json"
-        //        let params = ["id": "20"]
-        let params: [String:String] = [:]
-        var clientError : NSError?
         
-        let request: NSURLRequest? = Twitter.sharedInstance().APIClient.URLRequestWithMethod("GET", URL: statusesShowEndpoint, parameters: params, error: &clientError)
-        
-        if let request = request {
-            Twitter.sharedInstance().APIClient.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
-                if (connectionError == nil) {
-                    var jsonError : NSError?
-                    let json : AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &jsonError)
-//                    println(json)
-                    if let json = json as? NSDictionary {
-                        self.accountData = json
-                        
-                        self.updateUI(json)
-                    }
-                }
-                else {
-                    println("Error: \(connectionError)")
-                }
-            }
-        }
-        else {
-            println("Error: \(clientError)")
-        }
+//        getAccountVerifyCredentials()
     }
     
-    func updateUI(jsonData: NSDictionary) {
-        if let username = jsonData["name"] as? String {
-            self.title = username
-        }
-    }
-    
-    
+    // get folloewers list.
     func getFollowersList() {
         let statusesShowEndpoint = "https://api.twitter.com/1.1/followers/list.json"
-        //        let params = ["id": "20"]
         let params: [String:String] = [:]
         var clientError : NSError?
         
@@ -88,7 +39,6 @@ class MainTableViewController: UITableViewController {
                     if let followersListJson = json as? NSDictionary {
                         println(followersListJson)
                         self.followersData = followersListJson
-                        
                         self.createFollowersNameArray(followersListJson)
                     }
                 }
@@ -109,43 +59,59 @@ class MainTableViewController: UITableViewController {
                     println(name)
                     followersNameArray.append(name)
                 }
-                
             }
         }
-        
         tableView.reloadData()
     }
     
     
     
+    //    // get account info.
+    //    func getAccountVerifyCredentials() {
+    //        let statusesShowEndpoint = "https://api.twitter.com/1.1/account/verify_credentials.json"
+    //        //        let params = ["id": "20"]
+    //        let params: [String:String] = [:]
+    //        var clientError : NSError?
+    //
+    //        let request: NSURLRequest? = Twitter.sharedInstance().APIClient.URLRequestWithMethod("GET", URL: statusesShowEndpoint, parameters: params, error: &clientError)
+    //
+    //        if let request = request {
+    //            Twitter.sharedInstance().APIClient.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
+    //                if (connectionError == nil) {
+    //                    var jsonError : NSError?
+    //                    let json : AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &jsonError)
+    ////                    println(json)
+    //                    if let json = json as? NSDictionary {
+    //                        self.accountData = json
+    //
+    //                        self.updateUI(json)
+    //                    }
+    //                }
+    //                else {
+    //                    println("Error: \(connectionError)")
+    //                }
+    //            }
+    //        }
+    //        else {
+    //            println("Error: \(clientError)")
+    //        }
+    //    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //    func updateUI(jsonData: NSDictionary) {
+    //        if let username = jsonData["name"] as? String {
+    //            self.title = username
+    //        }
+    //    }
 
+        
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        
         return followersNameArray.count
     }
 
@@ -155,10 +121,8 @@ class MainTableViewController: UITableViewController {
 
         // Configure the cell...
         let username = followersNameArray[indexPath.row]
-        
         cell.textLabel?.text = "@\(username)"
         
-
         return cell
 
     }
@@ -168,18 +132,17 @@ class MainTableViewController: UITableViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-        
         if segue.identifier == "moveToMessageTableView" {
+            // pass the selected follower's username to messageVC's nav bar title.
             let messageVC = segue.destinationViewController as! MessageViewController
             let indexPath: NSIndexPath? = tableView.indexPathForSelectedRow()
             if let indexPath = indexPath {
                 let username: String? = followersNameArray[indexPath.row]
-                
-                let user: User = User(username: username!)
-                messageVC.user = user
-                messageVC.title = username
+                if let username = username {
+                    let user: User = User(username: username)
+                    messageVC.user = user
+                    messageVC.title = "@\(username)"
+                }
             }
         }
     }
@@ -220,5 +183,9 @@ class MainTableViewController: UITableViewController {
         return true
     }
     */
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }
