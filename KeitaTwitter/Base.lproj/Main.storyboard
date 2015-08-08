@@ -35,7 +35,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378" y="1752"/>
+            <point key="canvasLocation" x="243" y="1722"/>
         </scene>
         <!--KeitaTwitter DM-->
         <scene sceneID="TrI-db-XF2">
@@ -67,24 +67,6 @@
             </objects>
             <point key="canvasLocation" x="1055" y="1009"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="BD3-Pb-eZt">
-            <objects>
-                <tableViewController id="snF-46-LaN" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LE0-DF-ymc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="snF-46-LaN" id="Zhu-aF-vmD"/>
-                            <outlet property="delegate" destination="snF-46-LaN" id="jLY-VM-xY7"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue8-AU-02X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1824" y="327"/>
-        </scene>
         <!--Message View Controller-->
         <scene sceneID="6Pl-yI-8HQ">
             <objects>
@@ -112,6 +94,7 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="foo" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYl-8E-kzJ">
                                                     <rect key="frame" x="557" y="32" width="35" height="37"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -136,28 +119,29 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6e3-aS-quA" id="R7b-B2-AlG">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="99" image="left_bubble" translatesAutoresizingMaskIntoConstraints="NO" id="lPk-Hw-WwP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_bubble" translatesAutoresizingMaskIntoConstraints="NO" id="aJP-J3-glr">
+                                                    <rect key="frame" x="2" y="32" width="43" height="37"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="285" placeholderIntrinsicHeight="21" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao8-oS-6a4">
-                                                    <rect key="frame" x="8" y="39" width="285" height="21"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="bar" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIY-gl-Hw6">
+                                                    <rect key="frame" x="8" y="32" width="43" height="37"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lPk-Hw-WwP" firstAttribute="leading" secondItem="R7b-B2-AlG" secondAttribute="leading" id="3mh-6p-nz9"/>
-                                                <constraint firstItem="ao8-oS-6a4" firstAttribute="height" secondItem="lPk-Hw-WwP" secondAttribute="height" id="7C7-WU-Vtb"/>
-                                                <constraint firstItem="ao8-oS-6a4" firstAttribute="leading" secondItem="R7b-B2-AlG" secondAttribute="leading" constant="8" id="bn4-og-cI0"/>
-                                                <constraint firstItem="ao8-oS-6a4" firstAttribute="width" secondItem="lPk-Hw-WwP" secondAttribute="width" id="sKU-tb-oal"/>
-                                                <constraint firstAttribute="centerY" secondItem="lPk-Hw-WwP" secondAttribute="centerY" id="vz5-lY-Uck"/>
-                                                <constraint firstAttribute="centerY" secondItem="ao8-oS-6a4" secondAttribute="centerY" id="zc8-Cv-xbP"/>
+                                                <constraint firstItem="aJP-J3-glr" firstAttribute="width" secondItem="lIY-gl-Hw6" secondAttribute="width" id="3lf-t6-tOt"/>
+                                                <constraint firstItem="aJP-J3-glr" firstAttribute="leading" secondItem="lIY-gl-Hw6" secondAttribute="leading" constant="-6" id="8rr-fk-fWP"/>
+                                                <constraint firstItem="lIY-gl-Hw6" firstAttribute="leading" secondItem="R7b-B2-AlG" secondAttribute="leading" constant="8" id="PlY-gW-ryT"/>
+                                                <constraint firstItem="aJP-J3-glr" firstAttribute="height" secondItem="lIY-gl-Hw6" secondAttribute="height" id="Z1j-1R-Nwf"/>
+                                                <constraint firstAttribute="centerY" secondItem="aJP-J3-glr" secondAttribute="centerY" id="rRr-95-RBn"/>
+                                                <constraint firstAttribute="centerY" secondItem="lIY-gl-Hw6" secondAttribute="centerY" id="zuB-Bw-cz0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="backgroundImageView" destination="lPk-Hw-WwP" id="SU4-EM-f8e"/>
-                                            <outlet property="messageTextLabel" destination="ao8-oS-6a4" id="5eV-2o-ONv"/>
+                                            <outlet property="backgroundImageView" destination="aJP-J3-glr" id="dPE-oc-TBb"/>
+                                            <outlet property="messageTextView" destination="lIY-gl-Hw6" id="ocN-Hj-LBS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

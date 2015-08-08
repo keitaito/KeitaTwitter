@@ -137,7 +137,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         } else  {
             let cell = tableView.dequeueReusableCellWithIdentifier("ReceivingMessageCell", forIndexPath: indexPath) as! ReceivingMessageCell
-            cell.messageTextLabel.text = message.text
+            cell.messageTextView.text = message.text
             cell.backgroundImageView = UIImageView(image: UIImage(named: "left_bubble"))
             return cell
         }
