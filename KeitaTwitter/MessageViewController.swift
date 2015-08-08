@@ -23,7 +23,12 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             let lastMessage = messages.last!
             if lastMessage.type == .Sending {
-                autoReply(messages.last!)
+                
+                // 1 second delay with calling autoReply method
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+                    self.autoReply(self.messages.last!)
+                }
+                
             }
         }
     }
