@@ -11,11 +11,14 @@ import UIKit
 class SendingMessageCell: UITableViewCell {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var messageTextLabel: UILabel!
+    @IBOutlet weak var messageTextView: UITextView!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        messageTextView.textAlignment = .Right
+        messageTextView.sizeToFit()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
